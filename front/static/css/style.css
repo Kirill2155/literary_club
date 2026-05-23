@@ -1161,3 +1161,157 @@ footer p {
         margin-bottom: 10px;
     }
 }
+
+/* ====== МОБИЛЬНАЯ АДАПТАЦИЯ (до 600px) ====== */
+@media (max-width: 600px) {
+
+    .navbar { padding: 12px 16px; }
+    .navbar .container { padding: 0; }
+    .navbar-brand { font-size: 1.2rem; }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 52px; left: 0; right: 0;
+        background: rgba(255, 238, 231, 0.98);
+        padding: 12px 20px 16px;
+        border-bottom: 2px solid #2c1810;
+        z-index: 100;
+    }
+
+    .navbar-nav { flex-direction: column; gap: 4px; }
+
+    .nav-btn {
+        font-size: 1rem;
+        padding: 10px 0;
+        display: block;
+        border-bottom: 1px solid rgba(212, 181, 174, 0.3);
+    }
+
+    /* Hero: книга стоит вертикально, текст по корешку */
+    .book-cover {
+        min-height: 85vw;
+        max-height: 90vw;
+        padding: 0;
+        background-position: left center;
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .book-cover::before {
+        background: linear-gradient(
+            to right,
+            rgba(30, 16, 10, 0.90) 0%,
+            rgba(30, 16, 10, 0.55) 45%,
+            rgba(30, 16, 10, 0.10) 100%
+        );
+        border-radius: 0;
+    }
+
+    /* «Корешок» — узкая полоска слева */
+    .book-content {
+        margin-left: 0;
+        max-width: none;
+        width: 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 0;
+        gap: 14px;
+    }
+
+    .book-content .hero-eyebrow {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 0.55rem;
+        letter-spacing: 0.22em;
+        margin-bottom: 0;
+        white-space: nowrap;
+        color: #c4a97d;
+    }
+
+    .book-content .hero-title {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 1.45rem;
+        line-height: 1.1;
+        margin: 0;
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+        color: #f5e4dd;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .book-content .hero-title em {
+        writing-mode: vertical-rl;
+        display: inline;
+        font-size: inherit;
+        color: #d4a853;
+    }
+
+    /* Подзаголовок и кнопку скрываем — они переедут ниже */
+    .book-content .hero-subtitle,
+    .book-content .book-cta { display: none; }
+
+    /* Блок под картинкой — виден только на мобильном */
+    .hero-mobile-body {
+        display: block !important;
+        background: #2c1810;
+        padding: 18px 20px 22px;
+    }
+
+    .hero-mobile-body .hero-subtitle-mob {
+        font-size: 0.9rem;
+        color: #d4b5ae;
+        line-height: 1.65;
+        margin-bottom: 14px;
+        font-family: 'TT Livret', Georgia, serif;
+    }
+
+    .hero-mobile-body .book-cta-mob {
+        display: inline-block;
+        background: transparent;
+        border: 1.5px solid #d4b5ae;
+        color: #d4b5ae;
+        padding: 10px 26px;
+        font-family: Georgia, serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+    /* Секции */
+    .section { padding: 32px 16px; }
+    .section-divider { margin: 0 16px; }
+    .section-title { font-size: 1.5rem; margin-bottom: 20px; }
+
+    /* События */
+    .events-grid { grid-template-columns: 1fr; gap: 12px; }
+    .event-card { padding: 16px; }
+
+    /* Новости */
+    .news-card { flex-direction: column; gap: 12px; padding: 16px; }
+    .news-img { width: 100%; }
+    .news-img img { max-height: 200px; width: 100%; object-fit: cover; }
+    .news-title { font-size: 1rem; }
+    .news-text { font-size: 0.85rem; }
+
+    footer { padding: 14px 16px; }
+}
+
+/* Планшет */
+@media (min-width: 601px) and (max-width: 991px) {
+    .book-cover { min-height: 460px; padding: 60px 40px; }
+    .book-content { margin-left: 3%; max-width: 380px; }
+    .book-content .hero-title { font-size: 2.4rem; }
+    .book-content .hero-title em { font-size: 2rem; }
+    .section { padding: 40px 24px; }
+    .events-grid { grid-template-columns: 1fr; }
+    .news-card { flex-direction: column; gap: 14px; }
+    .news-img { width: 100%; }
+    .news-img img { max-height: 220px; width: 100%; object-fit: cover; }
+}
+
+.hero-mobile-body { display: none; }
