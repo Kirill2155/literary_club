@@ -1165,126 +1165,147 @@ footer p {
 /* ====== МОБИЛЬНАЯ АДАПТАЦИЯ (до 600px) ====== */
 @media (max-width: 600px) {
 
-    .navbar { padding: 12px 16px; }
-    .navbar .container { padding: 0; }
-    .navbar-brand { font-size: 1.2rem; }
-
-    .navbar-collapse {
-        position: absolute;
-        top: 52px; left: 0; right: 0;
-        background: rgba(255, 238, 231, 0.98);
-        padding: 12px 20px 16px;
-        border-bottom: 2px solid #2c1810;
-        z-index: 100;
+    /* Навигация */
+    .navbar {
+        padding: 12px 16px 0;
+        border-bottom: none !important;
     }
 
-    .navbar-nav { flex-direction: column; gap: 4px; }
+    .navbar .container {
+        padding: 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-toggler {
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .navbar-collapse {
+        position: static !important;
+        background: transparent !important;
+        padding: 8px 0 0 !important;
+        border-bottom: none !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        justify-content: center;
+        gap: 8px !important;
+        padding: 8px 0;
+        position: relative;
+        border-top: none;
+        margin-top: 8px;
+    }
+
+    .navbar-nav::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100vw;
+        right: -100vw;
+        height: 1.5px;
+        background: #3d1f1a;
+    }
+
+    .navbar-nav::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -100vw;
+        right: -100vw;
+        height: 2px;
+        background: #3d1f1a;
+    }
 
     .nav-btn {
         font-size: 1rem;
-        padding: 10px 0;
-        display: block;
-        border-bottom: 1px solid rgba(212, 181, 174, 0.3);
+        padding: 8px 12px;
+        border-bottom: none;
+        width: auto;
     }
 
-    /* Hero: книга стоит вертикально, текст по корешку */
+    /* Hero */
     .book-cover {
-        min-height: 85vw;
-        max-height: 90vw;
-        padding: 0;
-        background-position: left center;
+        min-height: 80vw;
+        background-size: cover !important;
+        background-position: 30% center !important;
+        padding: 28px 20px;
         display: flex;
-        align-items: stretch;
+        align-items: center;
         justify-content: flex-start;
     }
 
     .book-cover::before {
         background: linear-gradient(
-            to right,
-            rgba(30, 16, 10, 0.90) 0%,
-            rgba(30, 16, 10, 0.55) 45%,
-            rgba(30, 16, 10, 0.10) 100%
+            135deg,
+            rgba(30, 16, 10, 0.82) 0%,
+            rgba(30, 16, 10, 0.45) 55%,
+            rgba(30, 16, 10, 0.2) 100%
         );
         border-radius: 0;
     }
 
-    /* «Корешок» — узкая полоска слева */
     .book-content {
         margin-left: 0;
-        max-width: none;
-        width: 56px;
-        display: flex;
+        max-width: 260px;
+        width: auto;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 24px 0;
-        gap: 14px;
+        align-items: flex-start;
+        padding: 0;
+        gap: 0;
     }
 
     .book-content .hero-eyebrow {
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        font-size: 0.55rem;
-        letter-spacing: 0.22em;
-        margin-bottom: 0;
-        white-space: nowrap;
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 0.58rem;
+        letter-spacing: 0.18em;
+        margin-bottom: 12px;
+        white-space: normal;
         color: #c4a97d;
     }
 
     .book-content .hero-title {
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        font-size: 1.45rem;
-        line-height: 1.1;
-        margin: 0;
-        white-space: nowrap;
-        letter-spacing: 0.04em;
-        color: #f5e4dd;
-        text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 1.9rem;
+        white-space: normal;
+        margin-bottom: 10px;
+        line-height: 1.15;
     }
 
     .book-content .hero-title em {
-        writing-mode: vertical-rl;
-        display: inline;
-        font-size: inherit;
-        color: #d4a853;
+        writing-mode: horizontal-tb;
+        display: block;
+        font-size: 1.55rem;
+        margin-top: 4px;
     }
 
-    /* Подзаголовок и кнопку скрываем — они переедут ниже */
-    .book-content .hero-subtitle,
-    .book-content .book-cta { display: none; }
-
-    /* Блок под картинкой — виден только на мобильном */
-    .hero-mobile-body {
-        display: block !important;
-        background: #2c1810;
-        padding: 18px 20px 22px;
-    }
-
-    .hero-mobile-body .hero-subtitle-mob {
-        font-size: 0.9rem;
+    .book-content .hero-subtitle {
+        writing-mode: horizontal-tb;
+        transform: none;
+        display: block;
+        font-size: 0.82rem;
+        max-width: 220px;
+        margin: 10px 0 14px;
         color: #d4b5ae;
-        line-height: 1.65;
-        margin-bottom: 14px;
-        font-family: 'TT Livret', Georgia, serif;
     }
 
-    .hero-mobile-body .book-cta-mob {
+    .book-content .book-cta {
+        writing-mode: horizontal-tb;
+        transform: none;
         display: inline-block;
-        background: transparent;
-        border: 1.5px solid #d4b5ae;
-        color: #d4b5ae;
-        padding: 10px 26px;
-        font-family: Georgia, serif;
-        font-size: 0.8rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        text-decoration: none;
+        font-size: 0.72rem;
+        padding: 9px 18px;
     }
 
     /* Секции */
     .section { padding: 32px 16px; }
-    .section-divider { margin: 0 16px; }
+    .section-divider { margin: 0; }
     .section-title { font-size: 1.5rem; margin-bottom: 20px; }
 
     /* События */
@@ -1292,26 +1313,11 @@ footer p {
     .event-card { padding: 16px; }
 
     /* Новости */
-    .news-card { flex-direction: column; gap: 12px; padding: 16px; }
+    .news-card { flex-direction: column !important; gap: 12px; padding: 16px; }
     .news-img { width: 100%; }
-    .news-img img { max-height: 200px; width: 100%; object-fit: cover; }
+    .news-img img { width: 100%; max-height: 220px; object-fit: cover; }
     .news-title { font-size: 1rem; }
     .news-text { font-size: 0.85rem; }
 
     footer { padding: 14px 16px; }
 }
-
-/* Планшет */
-@media (min-width: 601px) and (max-width: 991px) {
-    .book-cover { min-height: 460px; padding: 60px 40px; }
-    .book-content { margin-left: 3%; max-width: 380px; }
-    .book-content .hero-title { font-size: 2.4rem; }
-    .book-content .hero-title em { font-size: 2rem; }
-    .section { padding: 40px 24px; }
-    .events-grid { grid-template-columns: 1fr; }
-    .news-card { flex-direction: column; gap: 14px; }
-    .news-img { width: 100%; }
-    .news-img img { max-height: 220px; width: 100%; object-fit: cover; }
-}
-
-.hero-mobile-body { display: none; }
